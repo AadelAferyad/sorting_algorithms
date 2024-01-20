@@ -9,9 +9,12 @@
 
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *node = *list, *inner_node, *tmp;
+	listint_t *node, *inner_node, *tmp;
 	int is_sorted = 0;
 
+	if (!list || !(*list))
+		return;
+	node = *list;
 	while (node)
 	{
 		inner_node = node;
@@ -33,10 +36,10 @@ void insertion_sort_list(listint_t **list)
 					*list = inner_node;
 				print_list(*list);
 			}
-			else if (!is_sorted)
-				break;
 			else
 				inner_node = inner_node->prev;
+			if (!is_sorted)
+				break;
 		}
 		node = node->next;
 		is_sorted = 0;
