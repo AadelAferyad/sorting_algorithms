@@ -10,6 +10,7 @@
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *node = *list, *inner_node, *tmp;
+	int is_sorted = 0;
 
 	while (node)
 	{
@@ -18,6 +19,7 @@ void insertion_sort_list(listint_t **list)
 		{
 			if (inner_node->prev->n > inner_node->n)
 			{
+				is_sorted = 1;
 				tmp = inner_node->prev;
 				if (tmp->prev)
 					tmp->prev->next = inner_node;
@@ -31,9 +33,12 @@ void insertion_sort_list(listint_t **list)
 					*list = inner_node;
 				print_list(*list);
 			}
+			else if (!is_sorted)
+				break;
 			else
 				inner_node = inner_node->prev;
 		}
 		node = node->next;
+		is_sorted = 0;
 	}
 }
