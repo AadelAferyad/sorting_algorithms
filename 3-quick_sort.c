@@ -10,35 +10,31 @@
  *
  * Return: return the index of the sorted value.
 */
-int partition(size_t start, size_t end, int *array, size_t size)
+int partition(int start, int end, int *array, int size)
 {
-	int pivot = 0, tmp;
-	size_t i = start - 1, j;
-	/*19, 48, 99, 71, 13, 52, 96, 73, 86, 7*/
-	/*i is searching for elements that are greater then pivot*/
-	/*j is searching for elements that are smaller then pivot*/
-	/*pivot = [4] 2 3 20 30 44 1 12 29 5 9*/
-				/*2 3 1 4 44 20 12 29 5 9 30*/
-				/*i i i	i*/
-	if (end <= 0)
-		return (0);
-	pivot = array[end];
-	for (j = start; j <= end - 1; j++)
+	int pivot = array[end], tmp;
+	int i = start - 1, j;
+
+	for (j = start; j < end; j++)
 	{
-		if (array[j] <= pivot)
+		if (array[j] < pivot)
 		{
 			i++;
 			tmp = array[i];
 			array[i] = array[j];
 			array[j] = tmp;
-			print_array(array, size);
+			if (i != j)
+				print_array(array, size);
 		}
 	}
-	i++;
-	tmp = array[i];
-	array[i] = array[end];
-	array[end] = tmp;
-	print_array(array, size);
+	if (array[i + 1] > array[end])
+	{
+		i++;
+		tmp = array[i];
+		array[i] = array[end];
+		array[end] = tmp;
+		print_array(array, size);
+	}
 	return (i);
 }
 /**
@@ -52,9 +48,9 @@ int partition(size_t start, size_t end, int *array, size_t size)
  * @array: the main array.
  * @size: the size of the main array.
 */
-void quickSort(size_t start, size_t end, int *array, size_t size)
+void quickSort(int start, int end, int *array, int size)
 {
-	size_t pivot_offset = 0;
+	int pivot_offset;
 
 	if (end > start)
 	{
@@ -75,7 +71,7 @@ void quickSort(size_t start, size_t end, int *array, size_t size)
 
 void quick_sort(int *array, size_t size)
 {
-	if (!array || size <= 0)
+	if (!array || size < 2)
 		return;
 	quickSort(0, size - 1, array, size);
 }
