@@ -18,20 +18,3 @@
 * What is the Big O notation, and how to evaluate the time complexity of an algorithm
 * How to select the best sorting algorithm for a given input
 * What is a stable sorting algorithm
-## Tasks
-
-| Task | File |
-| ---- | ---- |
-| 0. Bubble sort | [SOON](./) |
-| 1. Insertion sort | [SOON](./) |
-| 2. Selection sort | [SOON](./) |
-| 3. Quick sort | [SOON](./) |
-| 4. Shell sort - Knuth Sequence | [SOON](./) |
-| 5. Cocktail shaker sort | [SOON](./) |
-| 6. Counting sort | [SOON](./) |
-| 7. Merge sort | [SOON](./) |
-| 8. Heap sort | [SOON](./) |
-| 9. Radix sort | [SOON](./) |
-| 10. Bitonic sort | [SOON](./) |
-| 11. Quick Sort - Hoare Partition scheme | [SOON](./) |
-| 12. Dealer | [SOON](./) |
